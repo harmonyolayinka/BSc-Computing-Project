@@ -36,7 +36,7 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: #ffe4e1; 
-    padding:30px;
+    padding:20px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   }
   
@@ -58,6 +58,13 @@ body {
   #home:hover {
     background-color: #ffb6c1; 
   }
+
+  .logo {
+    width: 220px;   
+    height: auto;   
+    mix-blend-mode: multiply;
+    padding:0;
+  }  
   
 .overlay{
     display: none;
