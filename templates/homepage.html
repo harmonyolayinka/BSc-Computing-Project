@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="https://kit.fontawesome.com/af8ac1f015.js" crossorigin="anonymous"></script>
+  <script src="/static/script.js"></script>
+  <title>Learn Computing</title>
+</head>
+
+<body>
+  <div class="buttons">
+    <button id="home" action="/" aria-label="home button"><i class="fa-solid fa-house"></i></button>
+    <div class="accountBtns">
+      <button id="login" class="button" onclick="showOverlay()" role="button">Login</button>
+      <button id="sign-up" class="button" onclick="showSignUpOverlay()" role="button">Sign Up</button>
+    </div>
+  </div>
+  
+<div class="overlay" id="loginOverlay">
+  <form id ="login" action="/login" method="post" role="form" aria-label="close">
+    <button class="close" onclick="hideOverlay()"><i class="fa-solid fa-xmark"></i></button>
+    <h2>Log In</h2>
+    <label for="username">Username:</label>
+    <input type="text" name="username" placeholder="Enter username" required="required"/> <br>
+    <label for="password">Password:</label>
+    <input type="password" name="password" placeholder="Enter password" required="required"/><br>
+    <button class="button" type="submit">Login</button>
+  </form>
+</div>
+  
+<div class="overlay" id="signUpOverlay">
+  <form id ="sign-up" action="/sign-up" method="post" role="form">
+    <button class="close" type="button" onclick="hideOverlay()" aria-label="close"><i class="fa-solid fa-xmark"></i></button>
+    <h2>Sign Up</h2>
+    <label for="username">Username:</label>
+    <input type="text" name="username" placeholder="Create a username" required="required"/> <br>
+    <label for="password">Password:</label>
+    <input type="password" name="password" placeholder="Create a password" required="required"/><br>
+    <button class="button" type="submit">Register</button>
+  </form>
+</div>
+
+{% if error %}
+    <script>
+      onload = function() {
+        window.alert("{{error}}");
+        };
+    </script>
+{% endif %}
+</body>
+</html>
