@@ -24,7 +24,7 @@ def signUp():
 
    if existing:
     conn.close()
-    return render_template('homepage.html', error = 'This username is taken')
+    return render_template('homepage.html', error = 'This username is taken. Try another one', trigger_signUpOverlay=True)
    else:
      c.execute('insert into user(userName, passwordHash, points) values(?, ?, ?)',
                  (username, password, 0,))
@@ -50,9 +50,22 @@ def login():
     session['userID'] = account[0]
     return redirect('/')
    else:
-      return render_template('homepage.html', error = 'Invalid username or password')
+      return render_template('homepage.html', error = 'Invalid username or password. Please try again', trigger_overlay=True)
 
 @app.route('/logout')
 def logout():
    session.clear()
    return redirect('/')
+
+@app.route('/lessons')
+def lessonPage():
+      return render_template('lessons.html')
+
+@app.route('/stories')
+def stories():
+      return render_template('stories.html')
+
+@app.route('/about')
+def about():
+      return render_template('about.html')
+          
