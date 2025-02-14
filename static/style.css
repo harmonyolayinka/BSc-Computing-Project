@@ -46,8 +46,9 @@ body {
 
   .accountBtns button, form button {
     font-family: 'Comic Sans MS', cursive, sans-serif;
+    border:1px solid black;
   }
-  
+
   #home {
     font-size: 1.7rem;
     background-color: #ffcccb; 
@@ -65,6 +66,13 @@ body {
     mix-blend-mode: multiply;
     padding:0;
   }  
+
+  .gridPhoto {
+    width: 145px;   
+    height: auto;   
+    mix-blend-mode: multiply;
+    padding-top:15px;
+  }  
   
 .overlay{
     display: none;
@@ -73,10 +81,11 @@ body {
     transform: translate(-50%, -50%);
     position: absolute;
     width: 270px;
-    height: 280px;
+    height: 330px;
     background-color:#ffe4e1;
     padding: 30px;
     border-radius: 10px;
+    border: 1px solid black;
   }
   
   .close {
@@ -104,6 +113,7 @@ body {
     display: grid;
     grid-gap: 20px;
     padding: 40px;
+    padding-top:47px;
     margin: 0 auto;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   }
@@ -117,6 +127,12 @@ body {
     background-color: #ffe4e1;
     box-shadow: 0 4px 6px #ff6f61;
     justify-items: center;
+    text-align:center;
+  }
+
+  .title {
+    font-size: 24px;
+    font-weight: bold;
   }
 
   .link {
