@@ -19,3 +19,7 @@ function hideOverlay() {
 function logout(){
   window.location.href = '/logout';
 }
+
+function home(){
+  window.location.href = '/';
+}
