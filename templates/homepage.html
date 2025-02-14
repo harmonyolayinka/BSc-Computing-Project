@@ -11,7 +11,7 @@
 
 <body>
   <div class="buttons">
-    <button id="home" action="/" aria-label="home button"><i class="fa-solid fa-house"></i></button>
+    <button id="home" onclick="home()" aria-label="home button"><i class="fa-solid fa-house"></i></button>
     <img src="/static/logo.png" class="logo">
     <div class="accountBtns">
       <button id="login" class="button" onclick="showOverlay()" role="button">Login</button>
@@ -23,6 +23,9 @@
   <form id ="login" action="/login" method="post" role="form" aria-label="close">
     <button class="close" onclick="hideOverlay()"><i class="fa-solid fa-xmark"></i></button>
     <h2>Log In</h2>
+    {% if error %}
+    <p style="color: red;">{{error}}</p>
+    {% endif %}
     <label for="username">Username:</label>
     <input type="text" name="username" placeholder="Enter username" required="required"/> <br>
     <label for="password">Password:</label>
@@ -35,6 +38,9 @@
   <form id ="sign-up" action="/sign-up" method="post" role="form">
     <button class="close" type="button" onclick="hideOverlay()" aria-label="close"><i class="fa-solid fa-xmark"></i></button>
     <h2>Sign Up</h2>
+      {% if error %}
+        <p style="color: red;">{{error}}</p>
+      {% endif %}
     <label for="username">Username:</label>
     <input type="text" name="username" placeholder="Create a username" required="required"/> <br>
     <label for="password">Password:</label>
@@ -58,17 +64,25 @@
 
   <a href="/about" class="link">
     <div class="box">
-      <p>About</p>
+      <img src="/static/aboutpage.png" class="gridPhoto">
+        <p>About</p>
     </div>
   </a>
 </div>
 
-{% if error %}
-    <script>
-      onload = function() {
-        window.alert("{{error}}");
-        };
-    </script>
+{% if trigger_overlay %}
+      <script>
+        showOverlay();
+      </script>
 {% endif %}
+
+{% if trigger_signUpOverlay %}
+      <script>
+        showSignUpOverlay();
+      </script>
+{% endif %}
+
+
+
 </body>
 </html>
