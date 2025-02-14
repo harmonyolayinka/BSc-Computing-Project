@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="https://kit.fontawesome.com/af8ac1f015.js" crossorigin="anonymous"></script>
+  <script src="/static/script.js"></script>
+  <title>Learn Computing</title>
+</head>
+
+
+<body>
+  <div class="buttons">
+    <button id="home" onclick="home()" aria-label="home button"><i class="fa-solid fa-house"></i></button>
+    <img src="/static/logo.png" class="logo">
+    <div class="accountBtns">
+      <button id="login" class="button" onclick="showOverlay()" role="button">Login</button>
+      <button id="sign-up" class="button" onclick="showSignUpOverlay()" role="button">Sign Up</button>
+    </div>
+  </div>
+  
+{% if error %}
+    <script>
+      onload = function() {
+        window.alert("{{error}}");
+        };
+    </script>
+{% endif %}
+
+</body>
+</html>
