@@ -23,7 +23,48 @@
       {% endif %}
     </div>
   </div>
-  
+
+  <div class="overlay" id="loginOverlay">
+    <form id ="login" action="/login" method="post" role="form" aria-label="close">
+      <button class="close" onclick="hideOverlay()"><i class="fa-solid fa-xmark"></i></button>
+      <h2>Log In</h2>
+      {% if error %}
+      <p style="color: red;">{{error}}</p>
+      {% endif %}
+      <label for="username">Username:</label>
+      <input type="text" name="username" placeholder="Enter username" required="required"/> <br>
+      <label for="password">Password:</label>
+      <input type="password" name="password" placeholder="Enter password" required="required"/><br>
+      <button class="button" type="submit">Login</button>
+    </form>
+  </div>
+    
+  <div class="overlay" id="signUpOverlay">
+    <form id ="sign-up" action="/sign-up" method="post" role="form">
+      <button class="close" type="button" onclick="hideOverlay()" aria-label="close"><i class="fa-solid fa-xmark"></i></button>
+      <h2>Sign Up</h2>
+        {% if error %}
+          <p style="color: red;">{{error}}</p>
+        {% endif %}
+      <label for="username">Username:</label>
+      <input type="text" name="username" placeholder="Create a username" required="required"/> <br>
+      <label for="password">Password:</label>
+      <input type="password" name="password" placeholder="Create a password" required="required"/><br>
+      <button class="button" type="submit">Register</button>
+    </form>
+  </div>
+
+{% if trigger_overlay %}
+      <script>
+        showOverlay();
+      </script>
+{% endif %}
+
+{% if trigger_signUpOverlay %}
+      <script>
+        showSignUpOverlay();
+      </script>
+{% endif %}
 
 </body>
 </html>
