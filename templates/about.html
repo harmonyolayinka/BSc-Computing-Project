@@ -15,17 +15,82 @@
     <button id="home" onclick="home()" aria-label="home button"><i class="fa-solid fa-house"></i></button>
     <img src="/static/logo.png" class="logo">
     <div class="accountBtns">
+      {% if 'userID' in session %}
+      <button id="logout" class="button" onclick="logout()" role="button">Logout</button>
+      {% else %}
       <button id="login" class="button" onclick="showOverlay()" role="button">Login</button>
       <button id="sign-up" class="button" onclick="showSignUpOverlay()" role="button">Sign Up</button>
+      {% endif %}
     </div>
   </div>
-  
-{% if error %}
-    <script>
-      onload = function() {
-        window.alert("{{error}}");
-        };
-    </script>
+
+  <div class="overlay" id="loginOverlay">
+    <form id ="login" action="/login" method="post" role="form" aria-label="close">
+      <button class="close" onclick="hideOverlay()"><i class="fa-solid fa-xmark"></i></button>
+      <h2>Log In</h2>
+      {% if error %}
+      <p style="color: red;">{{error}}</p>
+      {% endif %}
+      <label for="username">Username:</label>
+      <input type="text" name="username" placeholder="Enter username" required="required"/> <br>
+      <label for="password">Password:</label>
+      <input type="password" name="password" placeholder="Enter password" required="required"/><br>
+      <button class="button" type="submit">Login</button>
+    </form>
+  </div>
+    
+  <div class="overlay" id="signUpOverlay">
+    <form id ="sign-up" action="/sign-up" method="post" role="form">
+      <button class="close" type="button" onclick="hideOverlay()" aria-label="close"><i class="fa-solid fa-xmark"></i></button>
+      <h2>Sign Up</h2>
+        {% if error %}
+          <p style="color: red;">{{error}}</p>
+        {% endif %}
+      <label for="username">Username:</label>
+      <input type="text" name="username" placeholder="Create a username" required="required"/> <br>
+      <label for="password">Password:</label>
+      <input type="password" name="password" placeholder="Create a password" required="required"/><br>
+      <button class="button" type="submit">Register</button>
+    </form>
+  </div>
+
+  <div class="aboutBox">
+    <p class="aboutHead">Welcome to LearnComputing!</p>
+    <p>LearnComputing is an educational platform designed for young girls, (specifically ages 10-11) to encourage them to learn about computer science.</p>
+    <hr>
+
+    <p class="aboutHead">My Mission</p>
+    <p>LearnComputing is dedicated to closing the gender gap in computing by empowering young girls with knowledge, confidence, and excitement for technology.</p>
+    <p>I aim to provide an enjoyable and supportive learning environment where every girl feels welcome and capable of achieving great things.</p>
+    <p>Hopefully, through the creation of more computing resources that engage young girls, we will slowly start to see more girls and women pursuing computer science.</p>
+    <hr>
+
+    <p class="aboutHead">What you'll find on LearnComputing</p>
+    <ul>
+      <li>Engaging lessons on various computing topics that align with the UK curriculum</li>
+      <li>Quizzes and challenges related to the lessons in order to assess understanding and progress</li>
+      <li>Inspirational stories about some influential women in the computer science field</li>
+      <li>A safe learning space designed for young learners, offering a secure and encouraging platform to grow</li>
+    </ul>
+    <hr>
+
+    <p class="aboutHead">Why learn computer science?</p>
+    <p>Computer science is about more than just coding - it's also about problem-solving, creativity, and bringing ideas to life.</p>
+    <p>Individuals with various different skills and interests are bound to find an aspect of computing that they enjoy.<p>
+    <p>And with all of the fast-moving technological developments we see today, it is becoming an increasingly important subject and it is 
+      beneficial for everybody to have some level of basic understanding of computers and computer science.</p>
+  </div>
+
+{% if trigger_overlay %}
+      <script>
+        showOverlay();
+      </script>
+{% endif %}
+
+{% if trigger_signUpOverlay %}
+      <script>
+        showSignUpOverlay();
+      </script>
 {% endif %}
 
 </body>
