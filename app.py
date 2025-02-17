@@ -7,10 +7,7 @@ app.secret_key = b'sgwt26t1uqan82'
 
 @app.route('/')
 def index():
-      if 'userID' in session:
-            return render_template('loggedin.html')
-      else:
-            return render_template('homepage.html')
+      return render_template('homepage.html')
       
 @app.route('/sign-up', methods = ['POST'])
 def signUp():
