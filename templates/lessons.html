@@ -15,18 +15,10 @@
     <button id="home" onclick="home()" aria-label="home button"><i class="fa-solid fa-house"></i></button>
     <img src="/static/logo.png" class="logo">
     <div class="accountBtns">
-      <button id="login" class="button" onclick="showOverlay()" role="button">Login</button>
-      <button id="sign-up" class="button" onclick="showSignUpOverlay()" role="button">Sign Up</button>
+        <button id="logout" class="button" onclick="logout()" role="button">Logout</button>
     </div>
   </div>
   
-{% if error %}
-    <script>
-      onload = function() {
-        window.alert("{{error}}");
-        };
-    </script>
-{% endif %}
 
 </body>
 </html>
