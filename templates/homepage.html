@@ -14,8 +14,12 @@
     <button id="home" onclick="home()" aria-label="home button"><i class="fa-solid fa-house"></i></button>
     <img src="/static/logo.png" class="logo">
     <div class="accountBtns">
+      {% if 'userID' in session %}
+      <button id="logout" class="button" onclick="logout()" role="button">Logout</button>
+      {% else %}
       <button id="login" class="button" onclick="showOverlay()" role="button">Login</button>
       <button id="sign-up" class="button" onclick="showSignUpOverlay()" role="button">Sign Up</button>
+      {% endif %}
     </div>
   </div>
   
@@ -52,6 +56,7 @@
 <div class="grid">
   <a href="/lessons" class="link">
     <div class="box">
+      <img src="/static/lessons.png" class="gridPhoto">
       <p class="title">Lessons</p>
       <p>Learn about different exciting computing topics!</p>
     </div>
@@ -59,6 +64,7 @@
 
   <a href="/stories" class="link">
     <div class="box">
+      <img src="/static/stories.png" class="gridPhoto2">
       <p class="title">Stories</p>
       <p>Learn about important female role models in computing!</p>
     </div>
@@ -84,8 +90,6 @@
         showSignUpOverlay();
       </script>
 {% endif %}
-
-
 
 </body>
 </html>
