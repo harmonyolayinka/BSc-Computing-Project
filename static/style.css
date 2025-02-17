@@ -68,11 +68,20 @@ body {
   }  
 
   .gridPhoto {
+    margin-top:17px;
     width: 145px;   
     height: auto;   
     mix-blend-mode: multiply;
     padding-top:15px;
   }  
+
+  .gridPhoto2 {
+    margin-top:17px;
+    width: 200px;   
+    height: auto;   
+    mix-blend-mode: multiply;
+    padding-top:15px;
+  } 
   
 .overlay{
     display: none;
@@ -86,6 +95,7 @@ body {
     padding: 30px;
     border-radius: 10px;
     border: 1px solid black;
+    z-index:1000;
   }
   
   .close {
@@ -113,7 +123,7 @@ body {
     display: grid;
     grid-gap: 20px;
     padding: 40px;
-    padding-top:47px;
+    padding-top:75px;
     margin: 0 auto;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   }
@@ -128,6 +138,7 @@ body {
     box-shadow: 0 4px 6px #ff6f61;
     justify-items: center;
     text-align:center;
+    height:375px;
   }
 
   .title {
@@ -139,3 +150,41 @@ body {
     text-decoration: none;
     color: black;
   }
+
+  .aboutBox {
+    font-family: 'Roboto', sans-serif; 
+    font-size: 18px;
+    border: 1px solid #ddd; 
+    border-radius: 10px; 
+    width: 80%; 
+    margin: 50px auto;
+    padding: 40px 50px; 
+    background-color: #f9f9f9; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
+    text-align: left; 
+    color: #333; 
+}
+
+.aboutHead {
+    font-weight: bold;
+    font-size: 30px; 
+    color: #333; 
+    margin-bottom: 20px; 
+}
+
+hr {
+    margin: 20px 0 30px; 
+    border: none;
+    border-top: 2px solid #ddd; 
+}
+
+ul {
+    padding-left: 20px; 
+    margin-top: 0;
+}
+
+li {
+    padding: 10px 0; 
+    font-size: 17px; 
+    line-height: 1.5; 
+}
